@@ -27,11 +27,11 @@ class App extends React.Component {
     lastState.filter(() => true);
     let bool = false;
     lastState.forEach(item => {
-      if (item == null) bool = true;
+      if (item != null) bool = true;
     });
     console.log(bool);
     let emptyArray = [];
-    if (bool == true) {
+    if (bool == false) {
       localStorage.setItem("comments", JSON.stringify(emptyArray));
     } else {
       localStorage.setItem("comments", JSON.stringify(lastState));
@@ -53,4 +53,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("form"));
+ReactDOM.render(<App />, document.getElementById("root"));
